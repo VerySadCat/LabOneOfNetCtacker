@@ -6,6 +6,7 @@ package date;
  * @version 1.0
  */
 public class Date {
+    /** Поля год, месяц, день*/
     private int year, month, day;
 
     /**
