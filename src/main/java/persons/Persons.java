@@ -1,4 +1,4 @@
-package Persons;
+package persons;
 
 import date.Date;
 
