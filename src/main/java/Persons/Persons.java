@@ -14,6 +14,8 @@ public class Persons {
     private char gender;
     /** Поле рост*/
     private float growth;
+    /** Поле имя*/
+    private String name;
 
     /**
      * Функция полечения значения поля
@@ -63,4 +65,20 @@ public class Persons {
         this.growth = growth;
     }
 
+
+    /**
+     * Функция полечения значения поля
+     * @return имя
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *  Процедура определения значения поля
+     * @param name - имя
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 }
