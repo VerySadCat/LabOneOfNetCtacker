@@ -1,6 +1,5 @@
 package persons;
-
-import date.Date;
+import org.joda.time.DateTime;
 
 /**
  * Класс реализующий человека
@@ -8,8 +7,10 @@ import date.Date;
  * @version 1.0
  */
 public class Persons {
+    /** Поле id*/
+    private int id;
     /** Поле день дожденья*/
-    private Date birtday;
+    private DateTime birthday;
     /** Поле пол (м, ж, ср)*/
     private char gender;
     /** Поле рост*/
@@ -17,21 +18,6 @@ public class Persons {
     /** Поле имя*/
     private String name;
 
-    /**
-     * Функция полечения значения поля
-     * @return день рожденья
-     */
-    public Date getBirtday() {
-        return birtday;
-    }
-
-    /**
-     * Процедура определения значения поля
-     * @param birtday - день рождения
-     */
-    public void setBirtday(Date birtday) {
-        this.birtday = birtday;
-    }
 
     /**
      * Функция полечения значения поля
@@ -80,5 +66,51 @@ public class Persons {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Функция полечения значения поля
+     * @return дату рождения
+     */
+    public DateTime getBirthday() {
+        return birthday;
+    }
+
+    /**
+     *  Процедура определения значения поля
+     * @param birthday - дата рождения
+     */
+    public void setBirthday(DateTime birthday) {
+        this.birthday = birthday;
+    }
+
+    /**
+     * Функция получения значения поля
+     * @return возраст человека
+     */
+    public int getAge(){
+        DateTime currentTime = new DateTime();
+        int agePerson = currentTime.getYear() - birthday.getYear(); // возраст по годам
+        // если не дошел в году до д.р.
+        if (currentTime.getMonthOfYear()<birthday.getMonthOfYear())
+            agePerson--;
+        if (currentTime.getMonthOfYear()==birthday.getMonthOfYear()& currentTime.getDayOfMonth()<birthday.getDayOfMonth())
+            agePerson--;
+        return agePerson;
+    }
+
+    /**
+     * Функция полечения значения поля
+     * @return id Person
+     */
+    public int getId() {
+        return id;
+    }
+    /**
+     *  Процедура определения значения поля
+     * @param id - id Person
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 }
