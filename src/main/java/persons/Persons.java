@@ -20,6 +20,19 @@ public class Persons {
 
 
     /**
+     * Конструктор для заполнения Person
+     * @param birthday - дата рождения
+     * @param gender - пол
+     * @param growth - рост
+     * @param name - имя
+     */
+    public Persons(DateTime birthday, char gender, float growth, String name){
+        this.birthday = birthday;
+        this.gender =  gender;
+        this.growth = growth;
+        this.name = name;
+    }
+    /**
      * Функция полечения значения поля
      * @return пол
      */
