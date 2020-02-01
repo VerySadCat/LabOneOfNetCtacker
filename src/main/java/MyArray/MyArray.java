@@ -1,6 +1,6 @@
 package MyArray;
 
-import persons.Persons;
+import persons.Person;
 
 /**
  * Класс реализующий динамический массив Person
@@ -9,7 +9,7 @@ import persons.Persons;
  */
 public class MyArray {
     /** Поле массив Person*/
-    private Persons array[];
+    private Person array[];
     /** Поле количество Person*/
     private int cardinality = 0;
 
@@ -26,16 +26,17 @@ public class MyArray {
      * Процедра добавления нового Person в массив
      * @param value - новый Person
      */
-    public void add(Persons value){
+    public void add(Person value){
         cardinality++;
         if (array == null){
-            array = new Persons[cardinality];
+            array = new Person[cardinality];
         }
         else{
-            Persons[] newArray = new Persons[cardinality];
+            Person[] newArray = new Person[cardinality];
             System.arraycopy(array, 0, newArray, 0, cardinality - 1);
             array = newArray;
         }
+
          array[cardinality-1] = value;
         // добавка индекса
         if (cardinality!=1){
@@ -55,18 +56,18 @@ public class MyArray {
     public boolean remove(int i){
         boolean flagInput = false;
         if(!(cardinality<i)) { //если есть такой индекс
-            Persons[] newArray;
+            Person[] newArray;
             if(i == cardinality){ // если граничная ситуация обрабатываем отдельно
                 if (cardinality == 1) {
                     newArray = null;
                 }
                 else {
-                    newArray  = new Persons[cardinality-1];
+                    newArray  = new Person[cardinality-1];
                     System.arraycopy(array, 0, newArray, 0, cardinality-1);
                 }
             }
             else{ // если стоит в середине
-                newArray  = new Persons[cardinality-1];
+                newArray  = new Person[cardinality-1];
                 System.arraycopy(array, 0, newArray, 0, i-1 );
 
                 System.arraycopy(array, i, newArray, i-1, cardinality - i);
@@ -76,34 +77,6 @@ public class MyArray {
             renumerateArray(i-1);
         }
         return flagInput;
-    }
-
-
-    /**
-     * Функция для поиска по имени
-     * @param seachName - имя для поиска в массиве array
-     * @return ячейку массиву или null
-     */
-    public Persons seachPeople(String seachName){
-        for (Persons temp :array ) {
-            if (temp.getName().equals(seachName)){
-                return temp;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Процедура вывода всех Person в массиве
-     */
-    public void printInformPerson(){
-        for (Persons temp : array ) {
-            System.out.println( temp.getId() + ". "+temp.getName() + " "
-                    + temp.getAge()+" "
-                    + temp.getGender() + " "
-                    + temp.getGrowth()
-            );
-        }
     }
 
 }

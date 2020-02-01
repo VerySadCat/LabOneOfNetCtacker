@@ -1,38 +1,25 @@
-import java.util.Date;
-import java.util.Scanner;
-import org.joda.time.DateTime;
-import MyArray.MyArray;
-import persons.Persons;
+import Repository.Repository;
+import divisions.Division;
+import persons.Gender;
+import persons.Person;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.Month;
 
 public class Main {
-    public static void main(String[] args) {
-        MyArray array = new MyArray();
-        DateTime dat = new DateTime();
+    public static void main(String[] args) throws IOException {
+        Person firstPerson = new Person(23, "Irina", "Chulkova", java.time.LocalDate.of(1998, Month.AUGUST, 20), Gender.FEMALE, new BigDecimal(67899), new Division(12, "F"));
+        Person secondPerson = new Person(45, "Alex", "Vasil", java.time.LocalDate.of(1999, Month.MAY, 30), Gender.FEMALE, new BigDecimal(98764), new Division(12, "I"));
+        Person thirdPerson = new Person(16, "Ivan", "Ivanov", java.time.LocalDate.of(1997, Month.MAY, 17), Gender.MALE, new BigDecimal(70098), new Division(45, "H"));
 
-       Persons newValue0 = new Persons( dat, 'm', 1.86f, "Ivan");
-       Persons newValue1 = new Persons( dat, 'm', 1.86f, "Ivan");
-       Persons newValue2 = new Persons( dat, 'm', 1.86f, "Ivan");
-        array.add(newValue0);
-
-        array.add(newValue1);
-        array.add(newValue2);
-        array.remove(2);
-        array.remove(2);
-        array.add((newValue0));
-        /*
-
-        Scanner in = new Scanner(System.in);
-        System.out.println("Input Name");
-        newValue.setName(in.next());
-        System.out.println("Input birthday");
+        Repository<Person> repository = new Repository<Person>();
+        repository.add(firstPerson);
+        repository.add(secondPerson);
+        repository.add(thirdPerson);
 
 
-        System.out.println("Input gender");
-        newValue.setGender(in.next().charAt(0));
 
-        array.add(newValue);
-
-*/
 
     }
 }
