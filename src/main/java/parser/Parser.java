@@ -1,6 +1,6 @@
 package parser;
 
-import Repository.Repository;
+import xml.Repository;
 import divisions.Division;
 import persons.Gender;
 import persons.Person;
@@ -24,11 +24,6 @@ public class Parser {
         return divisions;
     }
 
-    /**
-     * The method reads information from a user file and then adds it to Repository
-     * @return list with persons
-     * @throws IOException
-     */
     public Repository<Person> readFromFile() throws IOException {
         int count = 0;
         int i = 0;
@@ -62,41 +57,42 @@ public class Parser {
     }
 
     private Division checkDivision(String name) {
-        Division division = new Division(Math.abs(new Random().nextInt()), name);
+        Division division;
         boolean flag = true;
         Division check = null;
         Iterator<Division> it = divisions.iterator();
         while (it.hasNext() && flag) {
             check = it.next();
             if (name.compareTo(check.getName()) == 0) {
-                division = check;
                 flag = false;
             }
         }
         if (flag) {
+            division = new Division(Math.abs(new Random().nextInt()), name);
             divisions.add(division);
-            return new Division(Math.abs(new Random().nextInt()), name);
+            return division;
         } else {
             return check;
         }
     }
 
-    public Map<String, String> toMap() {
+
+    // для инжектора парсим файл аннотации
+    public Map<String, String> readFileAnnotation() {
         String[] array = new String[2];
         Map<String, String> map = new HashMap<>();
-
         try {
-            String c;
             BufferedReader reader = new BufferedReader(new FileReader("Annotation.txt"));
+            String c;
             while ((c = reader.readLine()) != null) {
                 array = c.split(" = ");
                 map.put(array[1], array[0]);
             }
             reader.close();
         } catch (IOException e) {
-            //reader.close();
             e.printStackTrace();
         }
+
         return map;
     }
 

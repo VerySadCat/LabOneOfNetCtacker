@@ -1,13 +1,14 @@
 package persons;
 
 import divisions.IDivision;
+import xml.Persons;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Objects;
 
-public class Person implements IPerson {
+public class Person extends Persons implements IPerson {
     private LocalDate localDate = LocalDate.now();
     private int id;
     private String name;
@@ -139,7 +140,7 @@ public class Person implements IPerson {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Persons{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +

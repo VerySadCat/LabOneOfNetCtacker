@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persons>
+    <persons>
+        <age>21</age>
+        <birthdate>1998-07-22</birthdate>
+        <division>
+            <id>8</id>
+            <name>F</name>
+        </division>
+        <firstName>Katy</firstName>
+        <gender>FEMALE</gender>
+        <id>19</id>
+        <lastName>SAD</lastName>
+        <salary>13231</salary>
+        <year>1998</year>
+    </persons>
+    <persons>
+        <age>21</age>
+        <birthdate>1998-12-30</birthdate>
+        <division>
+            <id>11</id>
+            <name>I</name>
+        </division>
+        <firstName>Alex</firstName>
+        <gender>MALE</gender>
+        <id>20</id>
+        <lastName>Vas</lastName>
+        <salary>777</salary>
+        <year>1998</year>
+    </persons>
+    <persons>
+        <age>22</age>
+        <birthdate>1997-06-18</birthdate>
+        <division>
+            <id>4</id>
+            <name>H</name>
+        </division>
+        <firstName>Ivan</firstName>
+        <gender>MALE</gender>
+        <id>21</id>
+        <lastName>Kot</lastName>
+        <salary>14098</salary>
+        <year>1997</year>
+    </persons>
+</persons>

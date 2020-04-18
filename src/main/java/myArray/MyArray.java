@@ -1,16 +1,16 @@
-package MyArray;
+package myArray;
 
 import persons.Person;
 
 /**
- * Класс реализующий динамический массив Person
+ * Класс реализующий динамический массив Persons
  * @author SadCat
  * @version 1.0
  */
 public class MyArray {
-    /** Поле массив Person*/
+    /** Поле массив Persons*/
     private Person array[];
-    /** Поле количество Person*/
+    /** Поле количество Persons*/
     private int cardinality = 0;
 
     /**
@@ -23,8 +23,8 @@ public class MyArray {
         }
     }
     /**
-     * Процедра добавления нового Person в массив
-     * @param value - новый Person
+     * Процедра добавления нового Persons в массив
+     * @param value - новый Persons
      */
     public void add(Person value){
         cardinality++;
